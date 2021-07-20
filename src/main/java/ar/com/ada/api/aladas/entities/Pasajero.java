@@ -12,12 +12,20 @@ public class Pasajero extends Persona {
     @Column(name = "pasajero_id")
     private Integer pasajeroId;
 
+    @OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Reserva> reservas = new ArrayList<>();
+
     public Integer getPasajeroId() {
         return pasajeroId;
     }
 
     public void setPasajeroId(Integer pasajeroId) {
         this.pasajeroId = pasajeroId;
+    }
+
+    public void agregarReserva(Reserva reserva) {
+        this.reservas.add(reserva);
+        reserva.setPasajero(this);
     }
 
 }
