@@ -30,7 +30,7 @@ public class Vuelo {
     private BigDecimal precio;
 
     @Column(name = "codigo_moneda")
-    private String codigoMoneda;
+    private String codigoMoneda; // ARS , USD
 
     @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reserva> reservas = new ArrayList<>();
