@@ -16,4 +16,8 @@ public class PasajeroService {
 
     }
 
+    public Pasajero buscarPorId(Integer id) {
+        return repo.findByPasajeroId(id);
+    }
+
 }
